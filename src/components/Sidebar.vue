@@ -13,11 +13,6 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['navigate', 'logout'])
-const isOpen = ref(true)
-
-const toggleSidebar = () => {
-  isOpen.value = !isOpen.value
-}
 
 const navigate = (page) => {
   emit('navigate', page)
@@ -26,14 +21,7 @@ const navigate = (page) => {
 
 <template>
   <div>
-    <button class="hamburger" @click="toggleSidebar">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <aside :class="['sidebar', { 'sidebar-open': isOpen }]">
-
       <div class="user-info">
         <div class="avatar">{{ username.charAt(0).toUpperCase() }}</div>
         <div class="user-details">
@@ -52,7 +40,6 @@ const navigate = (page) => {
           @click="navigate('RewardTiers')">
           <span class="label">Reward Tiers</span>
         </button>
-
       </nav>
 
       <button class="logout-btn" @click="emit('logout')">
@@ -63,28 +50,6 @@ const navigate = (page) => {
 </template>
 
 <style scoped>
-.hamburger {
-  display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1001;
-  background: #3b4ea3;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: white;
-  border-radius: 2px;
-  transition: all 0.3s;
-}
 
 .sidebar {
   position: fixed;

@@ -101,6 +101,7 @@ html, body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  background: #3b4ea3;
 }
 
 body {
