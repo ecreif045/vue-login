@@ -31,24 +31,24 @@ const photoColumns = ref([
         #${row.albumId}
       </span>`,
   },
-  {
-    field: 'thumbnailUrl',
-    title: 'Photo',
-    width: '100px',
-    cellRenderer: (row) => `
-      <img
-        src="${row.thumbnailUrl}"
-        alt="${row.title}"
-        data-url="${row.url}"
-        data-thumbnail="${row.thumbnailUrl}"
-        data-title="${row.title.replace(/"/g, '&quot;')}"
-        data-id="${row.id}"
-        data-albumid="${row.albumId}"
-        class="thumb-img"
-        width="60"
-        height="60"
-      />`,
-  },
+ {
+  field: 'thumbnailUrl',
+  title: 'Photo',
+  width: '100px',
+  cellRenderer: (row) => `
+    <img
+      src="https://picsum.photos/seed/${row.id}/60/60"
+      alt="${row.title}"
+      data-url="https://picsum.photos/seed/${row.id}/600/600"
+      data-thumbnail="https://picsum.photos/seed/${row.id}/60/60"
+      data-title="${row.title.replace(/"/g, '&quot;')}"
+      data-id="${row.id}"
+      data-albumid="${row.albumId}"
+      class="thumb-img"
+      width="60" height="60"
+      style="border-radius:8px;cursor:pointer;object-fit:cover;display:block;"
+    />`,
+},
   {
     field: 'title',
     title: 'Title',
@@ -58,21 +58,20 @@ const photoColumns = ref([
       </span>`,
   },
   {
-    field: 'action',
-    title: 'Preview',
-    width: '90px',
-    cellRenderer: (row) => `
-      <button
-        class="preview-btn"
-        data-url="${row.url}"
-        data-thumbnail="${row.thumbnailUrl}"
-        data-title="${row.title.replace(/"/g, '&quot;')}"
-        data-id="${row.id}"
-        data-albumid="${row.albumId}"
-      >
-        Preview
-      </button>`,
-  },
+  field: 'action',
+  title: 'Preview',
+  width: '90px',
+  cellRenderer: (row) => `
+    <button
+      class="preview-btn"
+      data-url="https://picsum.photos/seed/${row.id}/600/600"
+      data-thumbnail="https://picsum.photos/seed/${row.id}/60/60"
+      data-title="${row.title.replace(/"/g, '&quot;')}"
+      data-id="${row.id}"
+      data-albumid="${row.albumId}"
+      style="background:#6366f1;color:white;border:none;padding:5px 12px;border-radius:6px;cursor:pointer;font-size:12px;"
+    >Preview</button>`,
+},
 ])
 
 function handleTableClick(e) {
